@@ -1,0 +1,45 @@
+\documentclass[conference,a4paper]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{url}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Design-Based KPI Estimation and Survey-Weighted Machine Learning for Undiagnosed Diabetes Screening on NHANES 2017--2018}
+
+\author{\IEEEauthorblockN{Varun Mundhada}
+\IEEEauthorblockA{\textit{Department of Computer Science and Engineering} \\
+\textit{Symbiosis Institute of Technology, Nagpur}\\
+Symbiosis International (Deemed University), Pune, India \\
+PRN: 23070521184}
+}
+
+\maketitle
+
+\begin{abstract}
+Disease that has never been diagnosed is missing from claims, registries and hospital records, so performance indicators built from those sources cannot show it. This work uses the US National Health and Nutrition Examination Survey 2017 to 2018, which interviews and physically examines a national probability sample of 9,254 people, for two purposes. First, a pipeline produces 612 survey-weighted estimates for 17 indicators across utilisation, chronic disease and access, using Taylor-linearised standard errors with 15 design degrees of freedom, logit confidence intervals, statistical suppression, an income concentration index and direct age standardisation, and feeds a three-tier Streamlit dashboard. Among adults with glycated haemoglobin of 6.5 percent or more, 18.0 percent (95 percent CI 14.8 to 21.7) had never been told they had diabetes, about 4.2 million people. Lack of insurance was strongly concentrated among poorer adults (concentration index minus 0.42), but undiagnosed diabetes was not (minus 0.01). Second, logistic regression, random forest, gradient boosting and a multilayer perceptron were trained on 18 non-laboratory features to find undiagnosed diabetes among 4,051 adults, with survey weights and nested cross-validation, and compared with an adapted American Diabetes Association risk score and seven published models. Logistic regression reached a weighted AUC of 0.788 (0.732 to 0.841) against 0.734 for the risk score, a gain that was not statistically significant with 150 cases.
+\end{abstract}
+
+\begin{IEEEkeywords}
+NHANES, undiagnosed diabetes, complex survey design, concentration index, machine learning, public health dashboard
+\end{IEEEkeywords}
+
+\input{sections/methods}
+\input{sections/results_kpi}
+\input{sections/results_ml}
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

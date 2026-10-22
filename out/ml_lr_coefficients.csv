@@ -1,0 +1,33 @@
+term,coef_std,odds_ratio_per_sd
+num__AGE,0.5557,1.7431
+num__INDFMPIR,0.0894,1.0935
+num__EDUC,-0.1233,0.884
+num__BMXBMI,0.2543,1.2895
+num__BMXWAIST,0.2472,1.2805
+num__WHTR,0.3756,1.4559
+num__SBP,0.3279,1.388
+num__DBP,0.046,1.047
+num__SRH,0.1693,1.1845
+num__PHQ9,0.025,1.0253
+num__RX_N,-0.1091,0.8966
+num__missingindicator_INDFMPIR,-0.0799,0.9232
+num__missingindicator_EDUC,0.002,1.002
+num__missingindicator_BMXBMI,0.0434,1.0444
+num__missingindicator_BMXWAIST,0.1145,1.1213
+num__missingindicator_WHTR,0.064,1.0661
+num__missingindicator_SBP,-0.0263,0.974
+num__missingindicator_DBP,-0.0263,0.974
+num__missingindicator_SRH,-0.0371,0.9636
+num__missingindicator_PHQ9,-0.0765,0.9263
+bin__MALE,-0.1274,0.8803
+bin__FAM_HIST_DM,0.4381,1.5497
+bin__TOLD_HBP,0.0757,1.0787
+bin__TOLD_HICHOL,-0.1085,0.8972
+bin__INSURED_F,-0.3764,0.6863
+bin__USUAL_CARE_F,-0.0251,0.9753
+cat__RACE_ETH_Mexican American,-0.0087,0.9913
+cat__RACE_ETH_Non-Hispanic Asian,0.4471,1.5638
+cat__RACE_ETH_Non-Hispanic Black,0.3172,1.3733
+cat__RACE_ETH_Non-Hispanic White,-0.7008,0.4962
+cat__RACE_ETH_Other Hispanic,0.0776,1.0807
+cat__RACE_ETH_Other/Multi,-0.1244,0.8831

@@ -1,0 +1,8 @@
+condition,indicator,weighted_pop_with_condition,percent,n
+Diabetes,DM_ANY,33094362,13.4,5843
+Hypertension,HTN_ANY,119619140,48.4,5856
+Obesity,OBESE,102360102,41.95,5434
+Heart failure,HF,5492485,2.3,5552
+Coronary heart disease,CHD,10081249,4.23,5553
+COPD,COPD,10755574,4.51,5560
+Depression,DEPRESSION,18839559,8.58,5068

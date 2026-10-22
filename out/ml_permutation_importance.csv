@@ -1,0 +1,19 @@
+feature,importance_mean,importance_sd,model
+RACE_ETH,0.05109,0.01147,Logistic regression
+AGE,0.04914,0.01196,Logistic regression
+WHTR,0.02097,0.00726,Logistic regression
+SBP,0.01975,0.00644,Logistic regression
+FAM_HIST_DM,0.01373,0.00447,Logistic regression
+BMXBMI,0.0111,0.00521,Logistic regression
+BMXWAIST,0.01033,0.00507,Logistic regression
+INSURED_F,0.00645,0.00366,Logistic regression
+SRH,0.00588,0.00564,Logistic regression
+RX_N,0.00537,0.00378,Logistic regression
+INDFMPIR,0.00471,0.00315,Logistic regression
+TOLD_HICHOL,0.00183,0.00108,Logistic regression
+MALE,0.00174,0.00114,Logistic regression
+EDUC,0.0014,0.00252,Logistic regression
+PHQ9,0.00109,0.00128,Logistic regression
+DBP,0.0002,0.00142,Logistic regression
+USUAL_CARE_F,-5e-05,0.0002,Logistic regression
+TOLD_HBP,-8e-05,0.00093,Logistic regression

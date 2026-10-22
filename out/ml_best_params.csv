@@ -1,0 +1,21 @@
+model,fold,inner_auc_w,C,max_depth,min_samples_leaf,learning_rate,l2_regularization,hidden_layer_sizes,alpha
+Logistic regression,1,0.7636,0.01,,,,,,
+Random forest,1,0.7864,,8.0,20.0,,,,
+Gradient boosting,1,0.7321,,2.0,,0.03,1.0,,
+MLP,1,0.6001,,,,,,"(16,)",0.1
+Logistic regression,2,0.7656,0.01,,,,,,
+Random forest,2,0.8172,,4.0,5.0,,,,
+Gradient boosting,2,0.7842,,3.0,,0.03,1.0,,
+MLP,2,0.5357,,,,,,"(16,)",0.1
+Logistic regression,3,0.7713,0.01,,,,,,
+Random forest,3,0.7917,,8.0,20.0,,,,
+Gradient boosting,3,0.785,,3.0,,0.03,0.0,,
+MLP,3,0.6104,,,,,,"(16,)",0.1
+Logistic regression,4,0.7625,0.01,,,,,,
+Random forest,4,0.8083,,,20.0,,,,
+Gradient boosting,4,0.7787,,2.0,,0.03,1.0,,
+MLP,4,0.6113,,,,,,"(16,)",0.1
+Logistic regression,5,0.8239,0.01,,,,,,
+Random forest,5,0.8475,,,5.0,,,,
+Gradient boosting,5,0.8018,,3.0,,0.03,1.0,,
+MLP,5,0.6204,,,,,,"(16,)",0.1

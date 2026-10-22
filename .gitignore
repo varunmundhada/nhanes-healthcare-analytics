@@ -1,0 +1,21 @@
+# private notes and earlier drafts (not part of the public code)
+HANDOFF_*.md
+WRITING_BRIEF.md
+*.docx
+conference-latex-template/
+generate_docx.js
+build_report.js
+export_json_for_docx.py
+dashboard_export.json
+package.json
+package-lock.json
+node_modules/
+# build artefacts
+__pycache__/
+*.pyc
+IEEE_Paper/*.aux
+IEEE_Paper/*.bbl
+IEEE_Paper/*.blg
+IEEE_Paper/*.log
+IEEE_Paper/*.out
+~$*

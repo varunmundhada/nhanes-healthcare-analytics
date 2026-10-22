@@ -1,0 +1,69 @@
+
+
+
+\subsection{Screening model performance}
+The screening cohort had 4,051 adults, of whom 150 had HbA1c $\geq$6.5\% (3.7\% unweighted, 2.1\% weighted). Table~\ref{tab:ml} and Fig.~\ref{fig:roc} summarise the nested cross-validation. Logistic regression had the highest pooled out-of-fold weighted AUC, 0.788 (95\% CI 0.732--0.841), against 0.734 (0.689--0.775) for the adapted ADA score. At 80\% specificity it found 62\% of cases against 45\% for the ADA score, and its weighted AUPRC was twice as high (0.100 versus 0.048; the weighted prevalence is about 2\%). The bootstrap interval for the gain ($+0.057$, $-0.007$ to $+0.114$) includes zero, so with 150 cases the improvement is not established.
+
+\begin{table}[t]
+\caption{Nested-CV Results for Undiagnosed Diabetes (Weighted)}
+\label{tab:ml}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+\textbf{Model} & \textbf{AUC$_w$} & \textbf{Pooled AUC$_w$} & \textbf{AUPRC$_w$} & \textbf{Sens@} & \textbf{Brier$_w$} \\
+ & \textbf{mean$\pm$SD} & \textbf{(95\% CI)} & & \textbf{Spec 0.8} & \\
+\midrule
+ADA score$^a$ & 0.734$\pm$0.014 & 0.734 (0.689--0.775) & 0.048 & 0.45 & -- \\
+LR & 0.795$\pm$0.040 & \textbf{0.788} (0.732--0.841) & 0.100 & \textbf{0.62} & 0.170 \\
+RF & \textbf{0.802}$\pm$0.063 & 0.759 (0.691--0.820) & \textbf{0.113} & 0.58 & 0.053 \\
+GBM & 0.764$\pm$0.051 & 0.737 (0.673--0.804) & 0.094 & 0.53 & 0.073 \\
+MLP$^b$ & 0.564$\pm$0.122 & 0.552 (0.474--0.628) & 0.028 & 0.21 & 0.054 \\
+\bottomrule
+\multicolumn{6}{@{}l}{\scriptsize $^a$Adapted, 5 of 7 items; cut-off $\geq$5 gave sensitivity 0.66, specificity 0.68.}\\
+\multicolumn{6}{@{}l}{\scriptsize $^b$Unweighted (no sample-weight support). $n=4{,}051$, 150 cases, 5$\times$3 nested CV.}
+\end{tabular}
+\end{table}
+
+
+
+The random forest had the best mean fold AUC (0.802) but the widest spread across folds ($\pm$0.063). Its pooled AUC was lower (0.759) because scores from five separate forests are not on a common scale. Gradient boosting picked the smaller learning rate (0.03) in every fold and trees of depth 2 or 3, and still did not beat logistic regression; with 120 training positives per fold, the extra flexibility mostly added variance. Every inner search picked the strongest regularisation for logistic regression ($C_{\mathrm{reg}}=0.01$). The MLP was close to chance: it could not use the survey or class weights, and early stopping held out a 10\% validation split containing only 8 to 12 positives. Class balancing inflated predicted probabilities (Brier 0.05--0.17), which affects calibration but not ranking.
+
+Fig.~\ref{fig:roc}(b) ranks the inputs. Race and ethnicity and age mattered most, followed by waist-to-height ratio, systolic pressure and family history. In the standardised logistic model the odds per standard deviation were 1.74 for age, 1.46 for waist-to-height ratio and 1.39 for systolic pressure; family history multiplied the odds by 1.55, being insured by 0.69, and non-Hispanic White ethnicity by 0.50. Uninsured adults had higher odds of an undiagnosed case; fewer contacts with care is one plausible reason, though the data cannot show it.
+
+\subsection{Comparative analysis with published models}
+Table~\ref{tab:bench} compares published models. De Silva \textit{et al.} \cite{desilva2021} also targeted undiagnosed diabetes in NHANES; their ADA AUROC (0.737) is almost identical to ours (0.734), and they too found no significant ML gain. Our LR (0.788) is above their best (0.757), probably because it uses measured blood pressure and waist-to-height ratio rather than nutritional markers. AUCs above 0.85 \cite{liu2025,yang2026} come from many pooled cycles or high-risk cohorts, and \cite{qin2022,riverosperez2025} predicted fasting-glucose or self-reported diabetes, an easier target. Without survey weights, those AUCs describe the sample rather than the US population.
+
+\begin{table}[t]
+\caption{Comparison with Published Diabetes Screening Models}
+\label{tab:bench}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}p{1.15cm}p{2.75cm}p{1.45cm}p{1.6cm}@{}}
+\toprule
+\textbf{Study} & \textbf{Data, outcome} & \textbf{Model} & \textbf{AUC} \\
+\midrule
+\multirow{2}{*}{\cite{desilva2021} 2021} & NHANES, undiagnosed T2D & LR / RF / ANN & 0.757 / 0.752 / 0.749 \\
+ & (internal) & ADA test & 0.737 \\
+\cite{choi2023} 2023 & KNHANES, undiagnosed DM (external) & RF / XGB / LGBM & 0.788 / 0.802 / 0.819 \\
+\cite{qin2022} 2022 & NHANES, FPG $\geq$7 mmol/L & LR / RF / CatBoost & 0.75 / 0.81 / 0.83 \\
+\cite{riverosperez2025} 2025 & NHANES 2007--18, self-reported T2D & LR, RF / XGB & $\approx$0.79 / 0.817 \\
+\cite{yoo2026} 2026 & NHANES, pre-DM or DM (external US) & NN, 7 inputs & 0.773 \\
+\cite{liu2025} 2025 & NHANES 1999--2020, undiagnosed DM & AutoML & 0.909 \\
+\cite{yang2026} 2026 & NHANES 2013--18, high-risk adults & RF / XGB & 0.896 / 0.903 \\
+\midrule
+\textbf{This work} & NHANES 2017--18, undiagnosed DM, \textbf{weighted} & LR / RF / GBM & 0.788 / 0.759 / 0.737 \\
+ & & ADA (adapted) & 0.734 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Discussion and Limitations}
+The estimates show that about one in five adults with laboratory-defined diabetes is undiagnosed, and unlike lack of insurance this gap is not concentrated among the poor. A small set of non-laboratory measurements ranked these cases at least as well as the ADA questionnaire, and with about 150 cases a regularised logistic model was enough.
+
+Limitations: the data are cross-sectional (no incidence or causation); diabetes is HbA1c-only, with bias of unknown direction, so 18.0\% is not a lower bound; blood pressure is single-visit and oscillometric; the ``borderline'' answer moves the gap from 18.0\% to 23.4\%; public NHANES has no geography, and 93.6\% of uninsured variance sits in five masked strata; standardised intervals use $z=1.96$ and six or seven of eight age groups; the ML bootstrap ignores clustering. Two data errors were found and fixed: a placeholder row counted non-users of prescriptions as taking one drug, and a wrong variable name dropped COPD from the multimorbidity count.
+
+\section{Conclusion}
+This work built a three-tier KPI dashboard (Fig.~\ref{fig:dash}) whose 612 estimates carry design-based intervals and reliability flags. Undiagnosed diabetes affected 18.0\% (14.8--21.7) of adults with HbA1c $\geq$6.5\%, about 4.2 million people, and it was not graded by income, while lack of insurance was strongly concentrated among the poor ($C=-0.42$). A survey-weighted logistic regression on 18 non-laboratory inputs reached a weighted AUC of 0.788, above the adapted ADA score (0.734) but not significantly so. Next steps are to add the fasting-glucose file, pool the 2017--March 2020 and 2021--2023 cycles to increase the number of cases, and validate the model externally on the 2021--2023 data.

@@ -1,0 +1,6 @@
+model,auc_w_mean,auc_w_sd,auc_unw_mean,auprc_w_mean,auprc_w_sd,sens_at_spec80_w_mean,brier_w_mean,pooled_oof_auc_w,pooled_auc_ci_lo,pooled_auc_ci_hi,sens_cut5_mean,spec_cut5_mean,delta_auc_vs_ada,delta_ci_lo,delta_ci_hi
+ADA score (adapted),0.7341,0.014,0.7215,0.0481,0.0104,0.446,,0.7343,0.6889,0.7746,0.6593,0.6752,,,
+Logistic regression,0.7951,0.0398,0.7684,0.1002,0.0176,0.6217,0.1698,0.7885,0.7321,0.8407,,,0.0565,-0.0066,0.1143
+Random forest,0.8018,0.0627,0.7716,0.1132,0.0281,0.5805,0.0529,0.7586,0.6912,0.8197,,,0.0273,-0.0618,0.1018
+Gradient boosting,0.764,0.0512,0.7554,0.094,0.0234,0.534,0.073,0.7369,0.6727,0.8037,,,0.0067,-0.0631,0.0764
+MLP,0.5637,0.1217,0.5324,0.0281,0.0034,0.2089,0.0538,0.5521,0.4741,0.6282,,,-0.179,-0.2753,-0.0826

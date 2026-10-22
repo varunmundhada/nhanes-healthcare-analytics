@@ -1,0 +1,6 @@
+measure,percent,ci_lo,ci_hi,rse_pct,n,dof,weighted_pop,note
+"DM_UNDIAG (borderline=diagnosed, as-shipped)",17.99,14.77,21.73,9.1,746,15.0,23494129.0,DIQ010 code 3 (borderline) treated as diagnosed
+DM_UNDIAG (borderline=undiagnosed),23.39,19.53,27.75,8.2,746,15.0,23494129.0,DIQ010 code 3 (borderline) treated as undiagnosed
+HTN_UNDIAG_130,49.91,45.418699999999994,54.4099,4.2,2059,15.0,82560704.0,2017 ACC/AHA threshold (130/80)
+HTN_UNDIAG_140,42.37,37.3407,47.5532,5.7,1084,15.0,37842474.0,pre-2017 threshold (140/90)
+HTN_UNDIAG_BAND,56.3,49.6794,62.7058,5.5,975,15.0,44718229.0,"reclassified band only: 130-139/80-89, excluded from 140/90 group"
